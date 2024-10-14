@@ -7,6 +7,8 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <span style="font-weight: bold; vertical-align: middle;">FIK Software Development Specialization
+                            Quiz Hub</span>
                     </a>
                 </div>
             </div>
@@ -14,14 +16,23 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @auth
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        Dashboard
+                    </x-nav-link>
+                    <div class="mr-3"></div>
                     <x-nav-link :href="route('leaderboard')" :active="request()->routeIs('leaderboard')">
                         Leaderboard
+                    </x-nav-link>
+                    <div class="mr-3"></div>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        Quizzes
                     </x-nav-link>
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                <div>{{ Auth::user()->name }}</div>
+                                {{-- <div>{{ Auth::user()->name }}</div> --}}
+                                <div>Account</div>
 
                                 <div class="ml-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +71,6 @@
                     <x-nav-link :href="route('register')">Register</x-nav-link>
                 @endauth
                 @admin
-                    |
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
@@ -81,6 +91,9 @@
                         <x-slot name="content">
                             <x-dropdown-link :href="route('admins')">
                                 Admins
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('educators')">
+                                Educators
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('questions')">
                                 Questions

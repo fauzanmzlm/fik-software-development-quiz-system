@@ -11,6 +11,7 @@ class Quiz extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'user_id',
         'title',
         'slug',
         'description',
@@ -41,5 +42,13 @@ class Quiz extends Model
     public function scopePublished($q)
     {
         return $q->where('published', true);
+    }
+
+    /**
+     * Get the user that created the quiz.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

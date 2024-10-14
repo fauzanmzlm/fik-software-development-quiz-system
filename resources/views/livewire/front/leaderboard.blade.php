@@ -38,7 +38,8 @@
                         <tbody>
                             @forelse ($tests as $test)
                                 <tr @class([
-                                    'bg-gray-100' => auth()->check() && $test->user->name == auth()->user()->name,
+                                    'bg-gray-100' =>
+                                        auth()->check() && $test->user->name == auth()->user()->name,
                                 ])>
                                     <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
                                         {{ $loop->iteration }}
@@ -59,7 +60,9 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="3">No results.</td>
+                                    <td colspan="4" align="center">
+                                        <div class="py-2">No results.</div>
+                                    </td>
                                 </tr>
                             @endforelse
                             {{-- @forelse ($users as $user)

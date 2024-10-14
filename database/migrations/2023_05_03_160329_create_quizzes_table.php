@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('slug');
             $table->longText('description')->nullable();
@@ -20,6 +21,8 @@ return new class extends Migration
             $table->boolean('public')->default(0);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Define foreign key relationship
         });
     }
 

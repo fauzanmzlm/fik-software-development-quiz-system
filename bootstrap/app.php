@@ -41,6 +41,10 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+// # Register Service Providers
+// $app->register(BeyondCode\ErdGenerator\ErdGeneratorServiceProvider::class);
+
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

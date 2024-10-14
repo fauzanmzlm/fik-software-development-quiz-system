@@ -6,6 +6,10 @@ use App\Http\Controllers\ResultController;
 use App\Http\Livewire\Admin\AdminForm;
 use App\Http\Livewire\Admin\AdminList;
 use App\Http\Livewire\Admin\Tests\TestList;
+use App\Http\Livewire\Educator\EducatorForm;
+use App\Http\Livewire\Educator\EducatorList;
+use App\Http\Livewire\Front\Dashboard;
+// use App\Http\Livewire\Educator\Tests\TestList;
 use App\Http\Livewire\Front\Leaderboard;
 use App\Http\Livewire\Front\Results\ResultList;
 use App\Http\Livewire\Question\QuestionForm;
@@ -35,6 +39,7 @@ Route::get('results/{test}', [ResultController::class, 'show'])->name('results.s
 // protected routes
 Route::middleware('auth')->group(function () {
     Route::get('leaderboard', Leaderboard::class)->name('leaderboard');
+    Route::get('dashboard', Dashboard::class)->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -53,6 +58,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('admins', AdminList::class)->name('admins');
         Route::get('admins/create', AdminForm::class)->name('admin.create');
+
+        Route::get('educators', EducatorList::class)->name('educators');
+        Route::get('educators/create', EducatorForm::class)->name('educator.create');
 
         Route::get('tests', TestList::class)->name('tests');
     });
