@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             SubjectSeeder::class,
             QuizSeeder::class,
             QuestionSeeder::class,
-            OptionSeeder::class,
+            // OptionSeeder::class,
         ]);
     }
 }

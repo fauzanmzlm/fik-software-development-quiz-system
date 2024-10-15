@@ -109,11 +109,19 @@
                 }]
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+            scales: {
+                x: {
+                    ticks: {
+                        padding: 10, // Adjust the space between the labels and the axis
+                        autoSkip: false, // Ensure no labels are skipped
+                        maxRotation: 0, // Rotate the labels if needed to prevent overlap
+                        minRotation: 90
                     }
+                },
+                y: {
+                    beginAtZero: true
                 }
             }
+        }
         });
     </script>

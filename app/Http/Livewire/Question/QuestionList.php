@@ -19,7 +19,7 @@ class QuestionList extends Component
 
     public function render(): View
     {
-        $questions = Question::latest()->paginate();
+        $questions = Question::where('user_id', auth()->user()->id)->latest()->paginate();
 
         return view('livewire.question.qusetion-list', compact('questions'));
     }

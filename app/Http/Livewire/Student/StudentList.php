@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Educator;
+namespace App\Http\Livewire\Student;
 
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Response;
 use Livewire\Component;
 
-class EducatorList extends Component
+class StudentList extends Component
 {
     public function delete(User $educator)
     {
@@ -18,10 +18,10 @@ class EducatorList extends Component
 
     public function render(): View
     {
-        $educators = User::educator()->paginate();
+        $students = User::student()->paginate();
 
-        return view('livewire.educator.educator-list', [
-            'educators' => $educators
+        return view('livewire.student.student-list', [
+            'students' => $students
         ]);
     }
 }

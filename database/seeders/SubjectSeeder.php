@@ -13,13 +13,12 @@ class SubjectSeeder extends Seeder
     public function run(): void
     {
         Subject::create(['name' => 'Web Application Development']);
-        Subject::create(['name' => 'Requirements Engineering']);
-        Subject::create(['name' => 'Software Design']);
+        Subject::create(['name' => 'Requirements Engineering and Software Design']);
         Subject::create(['name' => 'Software Project Management']);
-        Subject::create(['name' => 'Software Testing and Analysis']);
+        Subject::create(['name' => 'Software Testing and Analysis']); 
         Subject::create(['name' => 'Software Development Workshop']);
-        Subject::create(['name' => 'Compiler Development']);
-        Subject::create(['name' => 'Formal Methods']);
-        Subject::create(['name' => 'Data Mining']);
+        Subject::create(['name' => 'Compiler Development']); 
+        Subject::create(['name' => 'Formal Methods']); 
+        Subject::create(['name' => 'Data Mining']); 
     }
 }
