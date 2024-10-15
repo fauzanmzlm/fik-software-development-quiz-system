@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Quiz;
 
 use App\Models\Question;
 use App\Models\Quiz;
+use App\Models\Subject;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -13,6 +14,8 @@ class QuizForm extends Component
     public Quiz $quiz;
 
     public array $questions = [];
+
+    public $subject; // Change to a single subject property
 
     public bool $editing = false;
 
@@ -26,6 +29,7 @@ class QuizForm extends Component
         'quiz.public' => 'boolean',
         'quiz.published' => 'boolean',
         'questions' => 'nullable|array',
+        'subject' => 'required|exists:subjects,id',
     ];
 
     public function mount(Quiz $quiz)
@@ -37,6 +41,7 @@ class QuizForm extends Component
         if ($this->quiz->exists) {
             $this->editing = true;
             $this->questions = $this->quiz->questions()->pluck('id')->toArray();
+            $this->subject = $this->quiz->subject_id; // Load the existing subject ID
         } else {
             $this->quiz->published = false;
             $this->quiz->public = false;
@@ -52,6 +57,11 @@ class QuizForm extends Component
     {
         $this->validate();
 
+        // Set the user_id to the currently authenticated user
+        $this->quiz->user_id = auth()->id(); // Set user_id before saving
+        // Set the subject_id from the selected subject
+        $this->quiz->subject_id = $this->subject;
+
         $this->quiz->save();
 
         $this->quiz->questions()->sync($this->questions);
@@ -62,6 +72,7 @@ class QuizForm extends Component
     protected function initListsForFields()
     {
         $this->listsForFields['questions'] = Question::pluck('text', 'id')->toArray();
+        $this->listsForFields['subjects'] = Subject::pluck('name', 'id')->toArray();
     }
 
     public function render(): View

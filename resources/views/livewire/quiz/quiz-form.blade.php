@@ -16,8 +16,8 @@
                     <form wire:submit.prevent="save">
                         <div>
                             <x-input-label for="title" value="Title" />
-                            <x-text-input wire:model="quiz.title" id="title" class="block mt-1 w-full" type="text"
-                                name="title" required />
+                            <x-text-input wire:model="quiz.title" id="title" class="block mt-1 w-full"
+                                type="text" name="title" required />
                             <x-input-error :messages="$errors->get('quiz.title')" class="mt-2" />
                         </div>
 
@@ -41,6 +41,13 @@
                                 wire:model="questions" multiple />
                             <x-input-error :messages="$errors->get('questions')" class="mt-2" />
                         </div>
+
+                        <div class="mt-4">
+                            <x-input-label for="subject" value="Subject" />
+                            <x-select-input id="subject" name="subject" :options="$this->listsForFields['subjects']" wire:model="subject" class="block mt-1 w-full" />
+                            <x-input-error :messages="$errors->get('subject')" class="mt-2" />
+                        </div>
+
 
                         <div class="mt-4">
                             <div class="flex items-center">

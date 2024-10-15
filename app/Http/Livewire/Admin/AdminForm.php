@@ -27,7 +27,7 @@ class AdminForm extends Component
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
-            'is_admin' => 1
+            'role' => User::ROLE_ADMIN
         ]);
 
         session()->flash('message', 'Saved.');

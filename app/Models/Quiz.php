@@ -17,6 +17,7 @@ class Quiz extends Model
         'description',
         'published',
         'public',
+        'subject_id',
     ];
 
     protected $casts = [
@@ -50,5 +51,15 @@ class Quiz extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function tests()
+    {
+        return $this->hasMany(Test::class);
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
     }
 }

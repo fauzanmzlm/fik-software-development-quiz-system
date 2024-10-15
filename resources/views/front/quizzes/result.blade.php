@@ -7,7 +7,8 @@
 
                     <table class="mt-4 table w-full table-view">
                         <tbody class="bg-white">
-                            @if (auth()->user()?->is_admin)
+                            @if (auth()->user()?->isEducator())
+                                {{-- @if (auth()->user()?->isAdmin) --}}
                                 <tr class="w-28">
                                     <th
                                         class="border border-solid bg-gray-100 px-6 py-3 text-left text-sm font-semibold uppercase text-slate-600">

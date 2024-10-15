@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quiz;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -10,7 +11,7 @@ class HomeController extends Controller
     {
         $query = Quiz::whereHas('questions')
             ->withCount('questions')
-            ->when(auth()->guest() || !auth()->user()->is_admin, function ($query) {
+            ->when(auth()->guest() || auth()->user()->role != User::ROLE_EDUCATOR, function ($query) {
                 return $query->where('published', 1);
             })
             ->get();

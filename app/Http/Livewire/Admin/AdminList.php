@@ -11,7 +11,7 @@ class AdminList extends Component
 {
     public function delete(User $admin)
     {
-        abort_if(!auth()->user()->is_admin, Response::HTTP_FORBIDDEN, 403);
+        abort_if(auth()->user()->role !== User::ROLE_ADMIN, Response::HTTP_FORBIDDEN, 403);
 
         $admin->delete();
     }

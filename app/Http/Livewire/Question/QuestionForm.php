@@ -58,6 +58,9 @@ class QuestionForm extends Component
     {
         $this->validate();
 
+        // Set the user_id to the currently authenticated user
+        $this->question->user_id = auth()->id(); // Set user_id before saving
+
         $this->question->save();
 
         $this->question->options()->delete();

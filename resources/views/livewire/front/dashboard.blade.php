@@ -60,61 +60,51 @@
             <!-- Number of Students -->
             <div class="dashboard-card">
                 <i class="fas fa-user-graduate card-icon mb-3"></i>
-                <div class="card-number">1,230</div>
+                <div class="card-number">{{ $numberOfStudents }}</div>
                 <div class="card-text">Number of Students</div>
             </div>
 
             <!-- Number of Educators -->
             <div class="dashboard-card">
                 <i class="fas fa-chalkboard-teacher card-icon mb-3"></i>
-                <div class="card-number">45</div>
+                <div class="card-number">{{ $numberOfEducators }}</div>
                 <div class="card-text">Number of Educators</div>
             </div>
 
             <!-- Number of Quizzes -->
             <div class="dashboard-card">
                 <i class="fas fa-file-alt card-icon mb-3"></i>
-                <div class="card-number">320</div>
+                <div class="card-number">{{ $numberOfQuizzes }}</div>
                 <div class="card-text">Number of Quizzes</div>
             </div>
 
             <!-- Average Performance -->
             <div class="dashboard-card">
                 <i class="fas fa-chart-line card-icon mb-3"></i>
-                <div class="card-number">85%</div>
+                <div class="card-number">{{ number_format($averagePerformance, 2) }}</div>
                 <div class="card-text">Average Performance</div>
             </div>
         </div>
         <!-- Graph Section -->
         <div class="chart-container mx-5 mb-5">
-            <canvas id="myChart"></canvas>
+            <canvas id="quizChart"></canvas>
         </div>
     </div>
 
     <script>
-        // Chart.js code to create a basic bar chart
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
+        const ctx = document.getElementById('quizChart').getContext('2d');
+        const quizLabels = @json($topQuizzes->pluck('title'));
+        const quizCounts = @json($topQuizzes->pluck('tests_count'));
+
+        const quizChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Math', 'Science', 'History', 'English', 'Geography'],
+                labels: quizLabels,
                 datasets: [{
-                    label: 'Top 10 Quiz Attempts',
-                    data: [85, 72, 90, 75, 80],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 99, 132, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 99, 132, 1)'
-                    ],
+                    label: 'Number of Attempts',
+                    data: quizCounts,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
                 }]
             },

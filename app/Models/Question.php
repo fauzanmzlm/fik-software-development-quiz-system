@@ -16,6 +16,7 @@ class Question extends Model
         'code_snippet',
         'answer_explanation',
         'more_info_link',
+        'user_id',
     ];
 
     public function options(): HasMany
@@ -26,5 +27,10 @@ class Question extends Model
     public function quizzes()
     {
         return $this->belongsToMany(Quiz::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

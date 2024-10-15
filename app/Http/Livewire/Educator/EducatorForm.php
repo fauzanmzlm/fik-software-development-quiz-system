@@ -27,8 +27,7 @@ class EducatorForm extends Component
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
-            'is_admin' => 1,
-            'role' => 2,
+            'role' => User::ROLE_EDUCATOR,
         ]);
 
         session()->flash('message', 'Saved.');

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('code_snippet')->nullable();
             $table->text('answer_explanation')->nullable();
             $table->string('more_info_link')->nullable();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete(); // Educator who created the question
             $table->timestamps();
             $table->softDeletes();
         });

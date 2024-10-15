@@ -20,7 +20,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'email' => 'admin@test.com',
+            'email' => $this->faker->unique()->safeEmail, // Generate a unique email
             'email_verified_at' => now(),
             'password' => bcrypt('123'), // password
             'remember_token' => Str::random(10),
@@ -42,6 +42,22 @@ class UserFactory extends Factory
      */
     public function admin(): static
     {
-        return $this->afterCreating(fn(User $user) => $user->update(['is_admin' => true]));
+        return $this->afterCreating(fn(User $user) => $user->update(['role' => User::ROLE_ADMIN]));
+    }
+
+    /**
+     * Indicate that the model is an admin.
+     */
+    public function educator(): static
+    {
+        return $this->afterCreating(fn(User $user) => $user->update(['role' => User::ROLE_EDUCATOR]));
+    }
+
+    /**
+     * Indicate that the model is an admin.
+     */
+    public function student(): static
+    {
+        return $this->afterCreating(fn(User $user) => $user->update(['role' => User::ROLE_STUDENT]));
     }
 }

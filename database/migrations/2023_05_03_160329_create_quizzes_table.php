@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('slug');
             $table->longText('description')->nullable();
             $table->boolean('published')->default(0);
             $table->boolean('public')->default(0);
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete(); // Educator who created the quiz
+            $table->foreignId('subject_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Define foreign key relationship
         });
     }
 
