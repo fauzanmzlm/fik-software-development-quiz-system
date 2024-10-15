@@ -1,4 +1,4 @@
-# Laravel Quiz System
+# FIK Software Development Quiz System
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 
