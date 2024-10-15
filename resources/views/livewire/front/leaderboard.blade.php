@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <select class="p-3 w-full text-sm leading-5 rounded border-0 shadow text-slate-600"
                         wire:model="quiz_id">
-                        <option value="0">All quizzes</option>
+                        <option value="0">All Quizzes</option>
                         @foreach ($quizzes as $quiz)
                             <option value="{{ $quiz->id }}">{{ $quiz->title }}</option>
                         @endforeach

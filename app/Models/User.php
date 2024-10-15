@@ -55,7 +55,17 @@ class User extends Authenticatable
 
     public function scopeAdmin($query)
     {
-        $query->where('is_admin', true);
+        $query->where('role', self::ROLE_ADMIN);
+    }
+
+    public function scopeEducator($query)
+    {
+        $query->where('role', self::ROLE_EDUCATOR);
+    }
+
+    public function scopeStudent($query)
+    {
+        $query->where('role', self::ROLE_STUDENT);
     }
 
     // Check if the user is an educator

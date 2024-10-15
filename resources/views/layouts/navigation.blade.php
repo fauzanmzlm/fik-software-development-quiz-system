@@ -16,9 +16,11 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @auth
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        Dashboard
-                    </x-nav-link>
+                    @admin
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            Dashboard
+                        </x-nav-link>
+                    @endadmin
                     <div class="mr-3"></div>
                     <x-nav-link :href="route('leaderboard')" :active="request()->routeIs('leaderboard')">
                         Leaderboard
@@ -70,7 +72,7 @@
                     <x-nav-link :href="route('login')">Log In</x-nav-link>
                     <x-nav-link :href="route('register')">Register</x-nav-link>
                 @endauth
-                @admin
+                @adminoroducator
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
@@ -89,25 +91,32 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('admins')">
-                                Admins
-                            </x-dropdown-link>
-                            <x-dropdown-link :href="route('educators')">
-                                Educators
-                            </x-dropdown-link>
-                            <x-dropdown-link :href="route('questions')">
-                                Questions
-                            </x-dropdown-link>
-                            <x-dropdown-link :href="route('quizzes')">
-                                Quizzes
-                            </x-dropdown-link>
-                            <x-dropdown-link :href="route('tests')">
-                                Tests
-                            </x-dropdown-link>
+                            @admin
+                                <x-dropdown-link :href="route('admins')">
+                                    Admins
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('educators')">
+                                    Educators
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('students')">
+                                    Students
+                                </x-dropdown-link>
+                            @endadmin
+                            @educator
+                                <x-dropdown-link :href="route('questions')">
+                                    Questions
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('quizzes')">
+                                    Quizzes
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('tests')">
+                                    Tests
+                                </x-dropdown-link>
+                            @endeducator
                         </x-slot>
 
                     </x-dropdown>
-                @endadmin
+                @endadminoroducator
             </div>
 
             <!-- Hamburger -->
@@ -129,7 +138,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <!-- Responsive Settings Options -->
-        @admin
+        @adminoroducator
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">
                     <button
@@ -147,19 +156,32 @@
                 </x-slot>
 
                 <x-slot name="content">
-                    <x-dropdown-link :href="route('questions')">
-                        Questions
-                    </x-dropdown-link>
-                    <x-dropdown-link :href="route('quizzes')">
-                        Quizzes
-                    </x-dropdown-link>
-                    <x-dropdown-link :href="route('tests')">
-                        Tests
-                    </x-dropdown-link>
+                    @admin
+                        <x-dropdown-link :href="route('admins')">
+                            Admins
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('educators')">
+                            Educators
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('students')">
+                            Students
+                        </x-dropdown-link>
+                    @endadmin
+                    @educator
+                        <x-dropdown-link :href="route('questions')">
+                            Questions
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('quizzes')">
+                            Quizzes
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('tests')">
+                            Tests
+                        </x-dropdown-link>
+                    @endeducator
                 </x-slot>
 
             </x-dropdown>
-        @endadmin
+        @endadminoroducator
         @auth
             <div class="pt-4 pb-1 border-t border-gray-200">
                 <div class="px-4">

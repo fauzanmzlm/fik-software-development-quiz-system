@@ -37,5 +37,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('student', function () {
             return auth()->check() && auth()->user()?->role === \App\Models\User::ROLE_STUDENT;
         });
+
+        Blade::if('adminoroducator', function () {
+            return auth()->check() && (auth()->user()?->role === \App\Models\User::ROLE_ADMIN || auth()->user()?->role === \App\Models\User::ROLE_EDUCATOR);
+        });
     }
 }
