@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'QuizHub - Guest') }}</title>
+    {{-- <title>{{ config('app.name', 'QuizHub - Guest') }}</title> --}}
+    <title>Quiz Hub</title>
 
     <link rel="icon" href=
-"{{ asset('assets/img/favicon.png') }}" type="image/x-icon">
+"{{ asset('assets/img/quiz-logo-6.png') }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
