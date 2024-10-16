@@ -44,13 +44,15 @@ These instructions will get you a copy of the project up and running on your loc
 1- Clone the project
 
 ```
-git clone https://github.com/kareemaladawy/laravel.git
+git clone https://github.com/fauzanmzlm/fik-software-development-quiz-system.git
 ```
 
 2- Install the dependencies
 
 ```
-composer install
+composer install 
+@
+composer update
 ```
 
 3- Configure the environment:
@@ -75,6 +77,24 @@ php artisan migrate --seed
 
 ```
 php artisan serve
+```
+
+7- Install NPM:
+
+```
+npm install
+```
+
+8- Run NPM:
+
+```
+npm run dev
+```
+
+9- Run NPM:
+
+```
+Open url provided after run 'php artisan serve' in step number 6
 ```
 
 ## Running Tests
