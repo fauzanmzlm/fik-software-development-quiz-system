@@ -20,10 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Blade::if('admin', function() {
-        //     return auth()->user()?->is_admin;
-        // });
-
         // Custom Blade directive for admin
         Blade::if('admin', function () {
             return auth()->check() && auth()->user()?->role === \App\Models\User::ROLE_ADMIN;

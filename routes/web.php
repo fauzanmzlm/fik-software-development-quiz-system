@@ -30,8 +30,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// public routes
+// Quiz Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Public Guests & Registered Users 
 Route::middleware('throttle:1,1')->group(function () {
     Route::get('quiz/{quiz}', [HomeController::class, 'show'])->name('quiz.show');
 });
