@@ -117,7 +117,7 @@
     <div class="py-6 public-quizzes">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
-                <h6 class="text-3xl font-bold mb-4">Public Quizzes</h6>
+                <h6 class="text-3xl font-bold mb-4">Public Quizzes ({{ count($public_quizzes) }})</h6>
                 <div class="quiz-card-grid">
                     @forelse($public_quizzes as $quiz)
                         <div class="quiz-card">
@@ -151,7 +151,7 @@
     <div class="py-6 registered-quizzes">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
-                <h6 class="text-3xl font-bold mb-4">Quizzes for Registered Users</h6>
+                <h6 class="text-3xl font-bold mb-4">Quizzes for Registered Users ({{ count($registered_only_quizzes) }})</h6>
                 <div class="quiz-card-grid">
                     @forelse($registered_only_quizzes as $quiz)
                         <div class="quiz-card">

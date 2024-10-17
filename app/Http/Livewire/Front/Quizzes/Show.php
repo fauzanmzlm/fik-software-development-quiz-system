@@ -83,6 +83,7 @@ class Show extends Component
                 Answer::create([
                     'user_id' => auth()->id(),
                     'test_id' => $test->id,
+                    'option_id' => $optionId, // temporary
                     'question_id' => $this->questions[$key]->id,
                 ]);
             }

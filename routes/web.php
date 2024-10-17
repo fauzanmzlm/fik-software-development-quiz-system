@@ -3,14 +3,13 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResultController;
+use App\Http\Livewire\Tests\TestList;
 use App\Http\Livewire\Admin\AdminForm;
 use App\Http\Livewire\Admin\AdminList;
 use App\Http\Livewire\Educator\EducatorForm;
 use App\Http\Livewire\Educator\EducatorList;
-use App\Http\Livewire\Educator\Tests\TestList;
 use App\Http\Livewire\Student\StudentList;
 use App\Http\Livewire\Front\Dashboard;
-// use App\Http\Livewire\Educator\Tests\TestList;
 use App\Http\Livewire\Front\Leaderboard;
 use App\Http\Livewire\Front\Results\ResultList;
 use App\Http\Livewire\Question\QuestionForm;
@@ -34,9 +33,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Public Guests & Registered Users 
-Route::middleware('throttle:1,1')->group(function () {
-    Route::get('quiz/{quiz}', [HomeController::class, 'show'])->name('quiz.show');
-});
+// Route::middleware('throttle:1,1')->group(function () {
+//     Route::get('quiz/{quiz}', [HomeController::class, 'show'])->name('quiz.show');
+// });
+Route::get('quiz/{quiz}', [HomeController::class, 'show'])->name('quiz.show');
 Route::get('results/{test}', [ResultController::class, 'show'])->name('results.show');
 
 // protected routes
@@ -62,8 +62,8 @@ Route::middleware('auth')->group(function () {
         Route::get('students', StudentList::class)->name('students');
     });
 
-    // Educator routes
-    Route::middleware('isEducator')->group(function () {
+    // Admin & Educator routes
+    Route::middleware(['hasRoleAdminOrEducator'])->group(function () {
         Route::get('questions', QuestionList::class)->name('questions');
         Route::get('questions/create', QuestionForm::class)->name('question.create');
         Route::get('questions/{question}', QuestionForm::class)->name('question.edit');

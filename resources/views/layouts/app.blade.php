@@ -25,6 +25,23 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        .text-success {
+            color: #28a745;
+        }
+
+        .text-danger {
+            color: #dc3545;
+        }
+
+        .succcess-background {
+            background-color: #28a745;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+    </style>
     @livewireStyles
 </head>
 

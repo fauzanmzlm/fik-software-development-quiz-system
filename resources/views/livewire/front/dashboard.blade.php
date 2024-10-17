@@ -87,6 +87,10 @@
         </div>
         <!-- Graph Section -->
         <div class="chart-container mx-5 mb-5">
+            <div class="text-right">
+                <button id="downloadChart"><span>Download Chart as Image &nbsp;&nbsp;<span class="text-success"><i
+                                class="fas fa-download"></i></span></span></button>
+            </div>
             <canvas id="quizChart"></canvas>
         </div>
     </div>
@@ -109,19 +113,51 @@
                 }]
             },
             options: {
-            scales: {
-                x: {
-                    ticks: {
-                        padding: 10, // Adjust the space between the labels and the axis
-                        autoSkip: false, // Ensure no labels are skipped
-                        maxRotation: 0, // Rotate the labels if needed to prevent overlap
-                        minRotation: 90
+                plugins: {
+                    title: {
+                        display: true, // Enable the title
+                        text: 'Top 10 Quiz Attempts', // The title text
+                        font: {
+                            size: 18 // Set the font size of the title
+                        }
                     }
                 },
-                y: {
-                    beginAtZero: true
+                scales: {
+                    x: {
+                        title: {
+                            display: true, // Enable title for x-axis
+                            text: 'Quizzes' // X-axis title
+                        },
+                        ticks: {
+                            padding: 10, // Adjust the space between the labels and the axis
+                            autoSkip: false, // Ensure no labels are skipped
+                            maxRotation: 0, // Rotate the labels if needed to prevent overlap
+                            minRotation: 90
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true, // Enable title for y-axis
+                            text: 'Number of Attempts' // Y-axis title
+                        },
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1, // Ensure the interval is 1
+                            callback: function(value) {
+                                return Number.isInteger(value) ? value : null; // Show only integers
+                            }
+                        }
+                    }
                 }
             }
-        }
+        });
+
+        // Function to download the chart as an image
+        document.getElementById('downloadChart').addEventListener('click', function() {
+            // Get the image data URL from the canvas
+            const imageLink = document.createElement('a');
+            imageLink.href = document.getElementById('quizChart').toDataURL('image/png');
+            imageLink.download = 'quiz_chart.png'; // File name for the downloaded image
+            imageLink.click(); // Trigger the download
         });
     </script>

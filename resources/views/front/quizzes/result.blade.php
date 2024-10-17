@@ -88,20 +88,31 @@
                                     <td>
                                         @foreach ($result->question->options as $option)
                                             <li @class([
-                                                'underline' => $result->option_id == $option->id,
-                                                'font-bold' => $option->correct == 1,
+                                                // 'underline' => $result->option_id == $option->id,
+                                                'font-bold text-success' => $option->correct == 1,
+                                                'text-danger font-bold' =>
+                                                    $option->correct == 0 && $result->option_id == $option->id,
+                                                // 'succcess-background' => $option->correct == 1,
+                                                // '' => $option->correct == 1,
                                             ])>
                                                 {{ $option->text }}
-                                                @if ($option->correct == 1)
+                                                {{-- @if ($option->correct == 1)
+                                                    <span class="italic">(correct answer)</span>
+                                                @endif --}}
+
+                                                @if ($option->correct == 1 && $result->option_id != $option->id)
                                                     <span class="italic">(correct answer)</span>
                                                 @endif
-                                                @if ($result->option_id == $option->id)
+                                                @if ($option->correct == 0 && $result->option_id == $option->id)
                                                     <span class="italic">(your answer)</span>
                                                 @endif
+                                                {{-- @if ($result->option_id == $option->id)
+                                                    <span class="italic">(your answer)</span>
+                                                @endif --}}
                                             </li>
                                         @endforeach
                                         @if (is_null($result->option_id))
-                                            <span class="font-bold italic">Question unanswered.</span>
+                                            <span class="font-bold italic" style="color:red">Question Unanswered.</span>
                                         @endif
                                     </td>
                                 </tr>

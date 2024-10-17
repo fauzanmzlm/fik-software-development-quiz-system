@@ -102,17 +102,17 @@
                                     Students
                                 </x-dropdown-link>
                             @endadmin
-                            @educator
-                                <x-dropdown-link :href="route('questions')">
-                                    Questions
-                                </x-dropdown-link>
-                                <x-dropdown-link :href="route('quizzes')">
-                                    Quizzes
-                                </x-dropdown-link>
-                                <x-dropdown-link :href="route('tests')">
-                                    Tests
-                                </x-dropdown-link>
-                            @endeducator
+                            {{-- @educator --}}
+                            <x-dropdown-link :href="route('questions')">
+                                Questions
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('quizzes')">
+                                Quizzes
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('tests')">
+                                Tests
+                            </x-dropdown-link>
+                            {{-- @endeducator --}}
                         </x-slot>
 
                     </x-dropdown>

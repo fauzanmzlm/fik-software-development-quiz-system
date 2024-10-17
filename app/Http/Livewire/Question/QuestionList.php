@@ -12,14 +12,21 @@ class QuestionList extends Component
 {
     public function delete(Question $question)
     {
-        abort_if(auth()->user()->role !== User::ROLE_EDUCATOR, Response::HTTP_FORBIDDEN, 403);
-
-        $question->delete();
+        if (auth()->user()->role == User::ROLE_ADMIN) {
+            $question->delete();
+        } else {
+            abort_if(auth()->user()->role !== User::ROLE_EDUCATOR, Response::HTTP_FORBIDDEN, 403);
+            $question->delete();
+        }
     }
 
     public function render(): View
     {
-        $questions = Question::where('user_id', auth()->user()->id)->latest()->paginate();
+        if (auth()->user()->role == User::ROLE_ADMIN) {
+            $questions = Question::latest()->paginate();
+        } else {
+            $questions = Question::where('user_id', auth()->user()->id)->latest()->paginate();
+        }
 
         return view('livewire.question.qusetion-list', compact('questions'));
     }
