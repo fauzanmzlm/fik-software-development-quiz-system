@@ -13,7 +13,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    @if (!$quiz->public && !auth()->check())
+                    {{-- @if (!$quiz->public && !auth()->check())
                         <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-700">
                             <span class="inline-block align-middle mr-8">
                                 This test is available only for registered users. Please <a href="{{ route('login') }}"
@@ -21,17 +21,17 @@
                                     class="hover:underline">Register</a>
                             </span>
                         </div>
+                    @else --}}
+                    @if (auth()->user()?->role == App\Models\User::ROLE_ADMIN || auth()->user()?->role == App\Models\User::ROLE_EDUCATOR)
+                        <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-700">
+                            <span class="inline-block align-middle mr-8">
+                                Test is available only for students.
+                            </span>
+                        </div>
                     @else
-                        @if (auth()->user()?->role == App\Models\User::ROLE_ADMIN || auth()->user()?->role == App\Models\User::ROLE_EDUCATOR)
-                            <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-700">
-                                <span class="inline-block align-middle mr-8">
-                                    Test is available only for students.
-                                </span>
-                            </div>
-                        @else
-                            @livewire('front.quizzes.show', ['quiz' => $quiz])
-                        @endif
+                        @livewire('front.quizzes.show', ['quiz' => $quiz])
                     @endif
+                    {{-- @endif --}}
                 </div>
             </div>
         </div>
