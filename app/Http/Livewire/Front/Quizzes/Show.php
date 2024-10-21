@@ -66,7 +66,8 @@ class Show extends Component
             'quiz_id' => $this->quiz->id,
             'result' => 0,
             'ip_address' => request()->ip(),
-            'time_spent' => now()->timestamp - $this->startTimeInSeconds
+            'time_spent' => now()->timestamp - $this->startTimeInSeconds,
+            'created_at' => now()->timestamp
         ]);
 
         foreach ($this->answersOfQuestions as $key => $optionId) {
