@@ -22,7 +22,7 @@
                             </span>
                         </div>
                     @else
-                        @if (auth()->user()->role == App\Models\User::ROLE_ADMIN || auth()->user()->role == App\Models\User::ROLE_EDUCATOR)
+                        @if (auth()->user()?->role == App\Models\User::ROLE_ADMIN || auth()->user()?->role == App\Models\User::ROLE_EDUCATOR)
                             <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-700">
                                 <span class="inline-block align-middle mr-8">
                                     Test is available only for students.
