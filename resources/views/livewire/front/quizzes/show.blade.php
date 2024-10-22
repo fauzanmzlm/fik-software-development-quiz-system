@@ -19,13 +19,17 @@
     @foreach ($currentQuestion->options as $option)
         <div>
             <label for="option.{{ $option->id }}">
-                <input type="radio" id="option.{{ $option->id }}"
+                <input required type="radio" id="option.{{ $option->id }}"
                     wire:model.defer="answersOfQuestions.{{ $currentQuestionIndex }}"
                     name="answersOfQuestions.{{ $currentQuestionIndex }}" value="{{ $option->id }}">
                 {{ $option->text }}
             </label>
         </div>
     @endforeach
+
+    @error('answer')
+        <div class="text-red-500 mt-2">{{ $message }}</div>
+    @enderror
 
     @if ($currentQuestionIndex < $this->questionsCount - 1)
         <div class="mt-4">

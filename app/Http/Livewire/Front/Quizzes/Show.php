@@ -46,8 +46,24 @@ class Show extends Component
         return $this->questions->count();
     }
 
+    public function validateAnswer(): bool
+    {
+        // Check if an option for the current question is selected
+        if (empty($this->answersOfQuestions[$this->currentQuestionIndex])) {
+            $this->addError('answer', 'Please select an option before proceeding.');
+            return false;
+        }
+
+        return true;
+    }
+
     public function nextQuestion()
     {
+        // Validate that an answer has been selected for the current question
+        if (!$this->validateAnswer()) {
+            return;
+        }
+
         $this->currentQuestionIndex++;
 
         if ($this->currentQuestionIndex == $this->questionsCount) {
@@ -71,10 +87,11 @@ class Show extends Component
         ]);
 
         foreach ($this->answersOfQuestions as $key => $optionId) {
+            $user_id = auth()->check() ? auth()->id() : null;
             if (!empty($optionId) && Option::find($optionId)->correct) {
                 $result++;
                 Answer::create([
-                    'user_id' => auth()->id(),
+                    'user_id' => $user_id,
                     'test_id' => $test->id,
                     'question_id' => $this->questions[$key]->id,
                     'option_id' => $optionId,
@@ -82,7 +99,7 @@ class Show extends Component
                 ]);
             } else {
                 Answer::create([
-                    'user_id' => auth()->id(),
+                    'user_id' => $user_id,
                     'test_id' => $test->id,
                     'option_id' => $optionId, // temporary
                     'question_id' => $this->questions[$key]->id,
