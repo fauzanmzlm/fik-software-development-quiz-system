@@ -11,12 +11,14 @@ class HomeController extends Controller
     {
         $query = Quiz::whereHas('questions')
             ->withCount('questions')
-            ->when(auth()->guest() || auth()->user()->role != User::ROLE_EDUCATOR, function ($query) {
-                return $query->where('published', 1);
-            })
+            ->where('published', 1)
+            // ->when(auth()->guest(), function ($query) {
+            //     return $query->where('published', 1);
+            // })
             ->get();
 
         $public_quizzes = $query->where('public', 1);
+
         $registered_only_quizzes = $query->where('public', 0);
 
         return view('home', compact('public_quizzes', 'registered_only_quizzes'));
