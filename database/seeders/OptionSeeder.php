@@ -14,8 +14,8 @@ class OptionSeeder extends Seeder
     {
         $options = [
 
-             // Web Application Development Questions [ID 1-5]
-            
+            // Web Application Development Questions [ID 1-5]
+
             // Options for question 1 (HTML)
             ['text' => 'HyperText Markup Language', 'correct' => true, 'question_id' => 1],
             ['text' => 'HyperText Machine Language', 'correct' => false, 'question_id' => 1],
@@ -110,9 +110,9 @@ class OptionSeeder extends Seeder
             ['text' => 'Waterfall emphasizes client collaboration, Agile does not', 'correct' => false, 'question_id' => 15],
             ['text' => 'Agile focuses on testing first, Waterfall focuses on development first', 'correct' => false, 'question_id' => 15],
 
-             // Software Testing and Analysis Questions  [ID 16-20]
+            // Software Testing and Analysis Questions  [ID 16-20]
 
-             // Options for question 16 (Primary Goal of Software Testing)
+            // Options for question 16 (Primary Goal of Software Testing)
             ['text' => 'To create new software features', 'correct' => false, 'question_id' => 16],
             ['text' => 'To identify and fix defects in the software', 'correct' => true, 'question_id' => 16],
             ['text' => 'To design the architecture of the software', 'correct' => false, 'question_id' => 16],
@@ -176,35 +176,67 @@ class OptionSeeder extends Seeder
 
             // Compiler Development Questions  [ID 26-30]
 
-            // Options for question 31 (Dynamic vs Static Typing)
-            ['text' => 'Dynamic typing checks data types at compile time, while static typing checks data types at runtime', 'correct' => false, 'question_id' => 31],
-            ['text' => 'Dynamic typing checks data types at runtime, while static typing checks data types at compile time', 'correct' => true, 'question_id' => 31],
-            ['text' => 'Dynamic typing does not require type declaration, while static typing requires explicit type declaration', 'correct' => true, 'question_id' => 31],
-            ['text' => 'Static typing is only used in scripting languages', 'correct' => false, 'question_id' => 31],
+            // Options for question 26 (Dynamic vs Static Typing)
+            ['text' => 'Dynamic typing checks data types at compile time, while static typing checks data types at runtime', 'correct' => false, 'question_id' => 26],
+            ['text' => 'Dynamic typing checks data types at runtime, while static typing checks data types at compile time', 'correct' => true, 'question_id' => 26],
+            ['text' => 'Dynamic typing does not require type declaration, while static typing requires explicit type declaration', 'correct' => true, 'question_id' => 26],
+            ['text' => 'Static typing is only used in scripting languages', 'correct' => false, 'question_id' => 26],
 
-            // Options for question 32 (Object-Oriented Programming Principles)
-            ['text' => 'The four main principles of object-oriented programming are inheritance, encapsulation, polymorphism, and abstraction', 'correct' => true, 'question_id' => 32],
-            ['text' => 'Object-oriented programming is based on functions and logic', 'correct' => false, 'question_id' => 32],
-            ['text' => 'Inheritance and encapsulation are optional principles in object-oriented programming', 'correct' => false, 'question_id' => 32],
-            ['text' => 'Object-oriented programming does not support the concept of classes and objects', 'correct' => false, 'question_id' => 32],
+            // Options for question 27 (Object-Oriented Programming Principles)
+            ['text' => 'The four main principles of object-oriented programming are inheritance, encapsulation, polymorphism, and abstraction', 'correct' => true, 'question_id' => 27],
+            ['text' => 'Object-oriented programming is based on functions and logic', 'correct' => false, 'question_id' => 27],
+            ['text' => 'Inheritance and encapsulation are optional principles in object-oriented programming', 'correct' => false, 'question_id' => 27],
+            ['text' => 'Object-oriented programming does not support the concept of classes and objects', 'correct' => false, 'question_id' => 27],
 
-            // Options for question 33 (Advantages of Recursion)
-            ['text' => 'Recursion allows a function to call itself, which can simplify complex problems into smaller ones', 'correct' => true, 'question_id' => 33],
-            ['text' => 'Recursion is always more efficient than iterative solutions', 'correct' => false, 'question_id' => 33],
-            ['text' => 'Recursion reduces the need for memory in problem-solving', 'correct' => false, 'question_id' => 33],
-            ['text' => 'Recursion avoids stack overflow in large computations', 'correct' => false, 'question_id' => 33],
+            // Options for question 28 (Advantages of Recursion)
+            ['text' => 'Recursion allows a function to call itself, which can simplify complex problems into smaller ones', 'correct' => true, 'question_id' => 28],
+            ['text' => 'Recursion is always more efficient than iterative solutions', 'correct' => false, 'question_id' => 28],
+            ['text' => 'Recursion reduces the need for memory in problem-solving', 'correct' => false, 'question_id' => 28],
+            ['text' => 'Recursion avoids stack overflow in large computations', 'correct' => false, 'question_id' => 28],
 
-            // Options for question 34 (Stack vs Queue)
-            ['text' => 'A stack follows a Last In, First Out (LIFO) structure, while a queue follows a First In, First Out (FIFO) structure', 'correct' => true, 'question_id' => 34],
-            ['text' => 'A stack follows a First In, First Out (FIFO) structure, while a queue follows a Last In, First Out (LIFO) structure', 'correct' => false, 'question_id' => 34],
-            ['text' => 'A stack allows elements to be inserted and removed from both ends, while a queue only allows insertion at one end and removal from the other end', 'correct' => false, 'question_id' => 34],
-            ['text' => 'A queue stores elements in reverse order, while a stack stores them sequentially', 'correct' => false, 'question_id' => 34],
+            // Options for question 29 (Stack vs Queue)
+            ['text' => 'A stack follows a Last In, First Out (LIFO) structure, while a queue follows a First In, First Out (FIFO) structure', 'correct' => true, 'question_id' => 29],
+            ['text' => 'A stack follows a First In, First Out (FIFO) structure, while a queue follows a Last In, First Out (LIFO) structure', 'correct' => false, 'question_id' => 29],
+            ['text' => 'A stack allows elements to be inserted and removed from both ends, while a queue only allows insertion at one end and removal from the other end', 'correct' => false, 'question_id' => 29],
+            ['text' => 'A queue stores elements in reverse order, while a stack stores them sequentially', 'correct' => false, 'question_id' => 29],
 
-            // Options for question 35 (Memory Management in Garbage Collection)
-            ['text' => 'Garbage collection automatically reclaims memory that is no longer in use by freeing up memory allocated to unused objects', 'correct' => true, 'question_id' => 35],
-            ['text' => 'Garbage collection requires the programmer to manually free unused memory', 'correct' => false, 'question_id' => 35],
-            ['text' => 'Languages with garbage collection do not need any memory management techniques', 'correct' => false, 'question_id' => 35],
-            ['text' => 'Garbage collection happens only during the compilation of the program', 'correct' => false, 'question_id' => 35],
+            // Options for question 30 (Memory Management in Garbage Collection)
+            ['text' => 'Garbage collection automatically reclaims memory that is no longer in use by freeing up memory allocated to unused objects', 'correct' => true, 'question_id' => 30],
+            ['text' => 'Garbage collection requires the programmer to manually free unused memory', 'correct' => false, 'question_id' => 30],
+            ['text' => 'Languages with garbage collection do not need any memory management techniques', 'correct' => false, 'question_id' => 30],
+            ['text' => 'Garbage collection happens only during the compilation of the program', 'correct' => false, 'question_id' => 30],
+
+            // Formal Methods Questions  [ID 31-35]
+
+            // Options for question ID 31
+            ['text' => 'Dynamic typing allows variables to change types at runtime, while static typing requires type declarations at compile-time.', 'correct' => true, 'question_id' => 31],
+            ['text' => 'Static typing allows variables to change types at runtime, while dynamic typing requires type declarations at compile-time.', 'correct' => false, 'question_id' => 31],
+            ['text' => 'Dynamic typing involves manual memory management, whereas static typing automates memory management.', 'correct' => false, 'question_id' => 31],
+            ['text' => 'Static typing does not require type declarations, but dynamic typing does.', 'correct' => false, 'question_id' => 31],
+
+            // Options for question ID 32
+            ['text' => 'Object-oriented programming focuses on encapsulating data and behavior into objects, emphasizing principles like inheritance and polymorphism.', 'correct' => true, 'question_id' => 32],
+            ['text' => 'Object-oriented programming eliminates the need for code modularity and focuses on procedural tasks.', 'correct' => false, 'question_id' => 32],
+            ['text' => 'Inheritance, encapsulation, polymorphism, and abstraction are the four principles of functional programming.', 'correct' => false, 'question_id' => 32],
+            ['text' => 'Object-oriented programming avoids the use of classes and objects to improve runtime performance.', 'correct' => false, 'question_id' => 32],
+
+            // Options for question ID 33
+            ['text' => 'Recursion simplifies complex problems by breaking them into smaller, more manageable sub-problems.', 'correct' => true, 'question_id' => 33],
+            ['text' => 'Recursion is always more efficient than iterative solutions.', 'correct' => false, 'question_id' => 33],
+            ['text' => 'Recursion is only used in object-oriented programming languages.', 'correct' => false, 'question_id' => 33],
+            ['text' => 'Recursion does not require a base case for terminating the function.', 'correct' => false, 'question_id' => 33],
+
+            // Options for question ID 34
+            ['text' => 'A stack is a LIFO (Last In, First Out) structure, while a queue is a FIFO (First In, First Out) structure.', 'correct' => true, 'question_id' => 34],
+            ['text' => 'A queue is a LIFO (Last In, First Out) structure, while a stack is a FIFO (First In, First Out) structure.', 'correct' => false, 'question_id' => 34],
+            ['text' => 'Stacks and queues operate on the same principles but use different names.', 'correct' => false, 'question_id' => 34],
+            ['text' => 'A stack and a queue are identical data structures with no operational differences.', 'correct' => false, 'question_id' => 34],
+
+            // Options for question ID 35
+            ['text' => 'Garbage collection automatically reclaims memory that is no longer in use, reducing manual memory management efforts.', 'correct' => true, 'question_id' => 35],
+            ['text' => 'Garbage collection prevents memory leaks by ensuring all memory is freed immediately after use.', 'correct' => false, 'question_id' => 35],
+            ['text' => 'Garbage collection only works in statically typed programming languages.', 'correct' => false, 'question_id' => 35],
+            ['text' => 'Memory management in garbage-collected languages requires explicit instructions to reclaim unused memory.', 'correct' => false, 'question_id' => 35],
 
             // Data Mining Questions  [ID 36-40]
 

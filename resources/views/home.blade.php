@@ -103,6 +103,38 @@
                 grid-template-columns: repeat(4, 1fr);
             }
         }
+
+        /* Container with unique namespace */
+        .myapp-label-badge-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Label with unique namespace */
+        .myapp-label {
+            font-size: 14px;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Badge with unique namespace */
+        .myapp-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: 10px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #ff8000;
+            /* Badge color */
+            border-radius: 6px;
+            min-width: 20px;
+            text-align: left;
+            font-family: Arial, sans-serif;
+            /* Overflow : Long Course Name */
+            white-space: nowrap;
+            overflow: hidden;
+        }
     </style>
 
     <!-- Welcome Section -->
@@ -124,7 +156,12 @@
                             <div class="quiz-card-content">
                                 <div>
                                     <h3 class="quiz-title">
-                                        <a href="{{ route('quiz.show', $quiz->slug) }}">{{ $quiz->title }}</a>
+                                        <div class="myapp-label-badge-container">
+                                            <span class="myapp-badge">{{ $quiz->subject->name }}</span>
+                                        </div>
+                                        <div>
+                                            <a href="{{ route('quiz.show', $quiz->slug) }}">{{ $quiz->title }}</a>
+                                        </div>
                                     </h3>
                                     <p class="flex items-center text-sm text-gray-500 mt-2">
                                         {{-- <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -147,18 +184,26 @@
         </div>
     </div>
 
+
+
     <!-- Section: Registered User Quizzes -->
     <div class="py-6 registered-quizzes">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
-                <h6 class="text-3xl font-bold mb-4">Quizzes for Registered Users ({{ count($registered_only_quizzes) }})</h6>
+                <h6 class="text-3xl font-bold mb-4">Quizzes for Registered Users ({{ count($registered_only_quizzes) }})
+                </h6>
                 <div class="quiz-card-grid">
                     @forelse($registered_only_quizzes as $quiz)
                         <div class="quiz-card">
                             <div class="quiz-card-content">
                                 <div>
                                     <h3 class="quiz-title">
-                                        <a href="{{ route('quiz.show', $quiz->slug) }}">{{ $quiz->title }}</a>
+                                        <div class="myapp-label-badge-container">
+                                            <span class="myapp-badge">{{ $quiz->subject->name }}</span>
+                                        </div>
+                                        <div>
+                                            <a href="{{ route('quiz.show', $quiz->slug) }}">{{ $quiz->title }}</a>
+                                        </div>
                                     </h3>
                                     <p class="flex items-center text-sm text-gray-500 mt-2">
                                         {{-- <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

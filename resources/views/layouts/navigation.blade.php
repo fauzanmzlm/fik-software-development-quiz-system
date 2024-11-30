@@ -52,9 +52,11 @@
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
-                            <x-dropdown-link :href="route('myresults')" :active="request()->routeIs('myresults')">
-                                {{ __('My Results') }}
-                            </x-dropdown-link>
+                            @if (auth()->user()->isStudent())
+                                <x-dropdown-link :href="route('myresults')" :active="request()->routeIs('myresults')">
+                                    {{ __('My Results') }}
+                                </x-dropdown-link>
+                            @endif
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
