@@ -25,13 +25,18 @@
                     @if (auth()->user()?->role == App\Models\User::ROLE_ADMIN || auth()->user()?->role == App\Models\User::ROLE_EDUCATOR)
                         <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-700">
                             <span class="inline-block align-middle mr-8">
-                                Test is available only for students.
+                                You're not allowed to answer this quiz.
+                            </span>
+                        </div>
+                    @elseif ($quiz->public == 0 && auth()->guest())
+                        <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-700">
+                            <span class="inline-block align-middle mr-8">
+                                Test is available only for registered users.
                             </span>
                         </div>
                     @else
                         @livewire('front.quizzes.show', ['quiz' => $quiz])
                     @endif
-                    {{-- @endif --}}
                 </div>
             </div>
         </div>
