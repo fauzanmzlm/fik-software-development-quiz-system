@@ -10,6 +10,7 @@ use App\Models\Answer;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Carbon\Carbon;
 
 class Show extends Component
 {
@@ -26,7 +27,7 @@ class Show extends Component
 
     public function mount()
     {
-        $this->startTimeInSeconds = now()->timestamp;
+        $this->startTimeInSeconds = Carbon::now()->timestamp;
 
         $this->questions = Question::query()
             ->inRandomOrder()
@@ -75,6 +76,11 @@ class Show extends Component
 
     public function submit()
     {
+        // Validate that an answer has been selected for the current question
+        if (!$this->validateAnswer()) {
+            return;
+        }
+
         $result = 0;
 
         $test = Test::create([
@@ -82,8 +88,8 @@ class Show extends Component
             'quiz_id' => $this->quiz->id,
             'result' => 0,
             'ip_address' => request()->ip(),
-            'time_spent' => now()->timestamp - $this->startTimeInSeconds,
-            'created_at' => now()->timestamp
+            'time_spent' => Carbon::now()->timestamp - $this->startTimeInSeconds,
+            'created_at' => Carbon::now()->toDateTimeString()
         ]);
 
         foreach ($this->answersOfQuestions as $key => $optionId) {
