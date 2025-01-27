@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quiz;
-use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -12,9 +11,6 @@ class HomeController extends Controller
         $query = Quiz::whereHas('questions')
             ->withCount('questions')
             ->where('published', 1)
-            // ->when(auth()->guest(), function ($query) {
-            //     return $query->where('published', 1);
-            // })
             ->get();
 
         $public_quizzes = $query->where('public', 1);

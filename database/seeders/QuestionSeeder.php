@@ -70,10 +70,31 @@ class QuestionSeeder extends Seeder
             ['text' => 'How does clustering differ from classification in data mining?', 'user_id' => 11],
             ['text' => 'What is the purpose of data preprocessing in the context of data mining?', 'user_id' => 11],
 
+            // AI Questions  [ID 41-45]
+            ['text' => 'What is the main goal of AI?', 'user_id' => 10],
+            ['text' => 'Which is an example of a machine learning technique?', 'user_id' => 10],
+            ['text' => 'What does NLP stand for in AI?', 'user_id' => 10],
+            ['text' => 'Which is not a type of neural network?', 'user_id' => 10],
+            ['text' => 'What is supervised learning?', 'user_id' => 10],
+
+            // Database Questions  [ID 46-50]
+            ['text' => 'What does SQL stand for?', 'user_id' => 10],
+            ['text' => 'Which is an example of a NoSQL database?', 'user_id' => 10],
+            ['text' => 'What is a primary key?', 'user_id' => 10],
+            ['text' => 'Which operation is used to retrieve data from a database?', 'user_id' => 10],
+            ['text' => 'What does normalization in databases achieve?', 'user_id' => 10],
+
+            // System Analysis Questions  [ID 51-55]
+            ['text' => 'What is the purpose of system analysis?', 'user_id' => 7],
+            ['text' => 'Which tool is commonly used in system analysis?', 'user_id' => 7],
+            ['text' => 'What is a use case diagram?', 'user_id' => 7],
+            ['text' => 'What is feasibility study in system development?', 'user_id' => 7],
+            ['text' => 'Which is not a phase in SDLC?', 'user_id' => 7],
+
 
             // ============================== PUBLIC QUESTIONS =============================
 
-            // Web Application Development Questions [ID 41-45]
+            // Web Application Development Questions [ID 56-60]
             [
                 'text' => 'What will be the output of the following CSS code?',
                 'code_snippet' => 'h1 { color: red; }',
@@ -156,14 +177,32 @@ class QuestionSeeder extends Seeder
             ['question_id' => 39, 'quiz_id' => 8],
             ['question_id' => 40, 'quiz_id' => 8],
 
-
-            // ================ PUBLIC QUESTIONS =============================
-
             ['question_id' => 41, 'quiz_id' => 9],
             ['question_id' => 42, 'quiz_id' => 9],
             ['question_id' => 43, 'quiz_id' => 9],
             ['question_id' => 44, 'quiz_id' => 9],
             ['question_id' => 45, 'quiz_id' => 9],
+
+            ['question_id' => 46, 'quiz_id' => 10],
+            ['question_id' => 47, 'quiz_id' => 10],
+            ['question_id' => 48, 'quiz_id' => 10],
+            ['question_id' => 49, 'quiz_id' => 10],
+            ['question_id' => 50, 'quiz_id' => 10],
+
+            ['question_id' => 51, 'quiz_id' => 11],
+            ['question_id' => 52, 'quiz_id' => 11],
+            ['question_id' => 53, 'quiz_id' => 11],
+            ['question_id' => 54, 'quiz_id' => 11],
+            ['question_id' => 55, 'quiz_id' => 11],
+
+
+            // ================ PUBLIC QUESTIONS =============================
+
+            ['question_id' => 56, 'quiz_id' => 12],
+            ['question_id' => 57, 'quiz_id' => 12],
+            ['question_id' => 58, 'quiz_id' => 12],
+            ['question_id' => 59, 'quiz_id' => 12],
+            ['question_id' => 60, 'quiz_id' => 12],
 
         ];
 

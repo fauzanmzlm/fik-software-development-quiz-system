@@ -270,41 +270,135 @@ class OptionSeeder extends Seeder
             ['text' => 'Data preprocessing removes the need for data mining by cleaning the data', 'correct' => false, 'question_id' => 40],
             ['text' => 'Data preprocessing is used to reduce the dimensionality of datasets to improve processing time', 'correct' => false, 'question_id' => 40],
 
+            // Artificial Intelligence Questions  [ID 41-45]
+
+            // Options for question 41
+            ['text' => 'To replicate human intelligence', 'correct' => false, 'question_id' => 41],
+            ['text' => 'To solve complex problems using data and algorithms', 'correct' => true, 'question_id' => 41],
+            ['text' => 'To replace all human jobs with automation', 'correct' => false, 'question_id' => 41],
+            ['text' => 'To create robots for every industry', 'correct' => false, 'question_id' => 41],
+
+            // Options for question 42
+            ['text' => 'Linear regression', 'correct' => true, 'question_id' => 42],
+            ['text' => 'Bubble sorting', 'correct' => false, 'question_id' => 42],
+            ['text' => 'Memory allocation', 'correct' => false, 'question_id' => 42],
+            ['text' => 'Kernel optimization', 'correct' => false, 'question_id' => 42],
+
+            // Options for question 43
+            ['text' => 'Natural Logic Processing', 'correct' => false, 'question_id' => 43],
+            ['text' => 'Neural Language Programming', 'correct' => false, 'question_id' => 43],
+            ['text' => 'Natural Language Processing', 'correct' => true, 'question_id' => 43],
+            ['text' => 'Neural Learning Protocols', 'correct' => false, 'question_id' => 43],
+
+            // Options for question 44
+            ['text' => 'Convolutional Neural Network', 'correct' => false, 'question_id' => 44],
+            ['text' => 'Feedforward Neural Network', 'correct' => false, 'question_id' => 44],
+            ['text' => 'Decision Tree', 'correct' => true, 'question_id' => 44],
+            ['text' => 'Recurrent Neural Network', 'correct' => false, 'question_id' => 44],
+
+            // Options for question 45
+            ['text' => 'Learning from labeled data to make predictions', 'correct' => true, 'question_id' => 45],
+            ['text' => 'Learning without any labeled data', 'correct' => false, 'question_id' => 45],
+            ['text' => 'Creating rules manually for tasks', 'correct' => false, 'question_id' => 45],
+            ['text' => 'Performing reinforcement tasks', 'correct' => false, 'question_id' => 45],
+
+            // Database Management Questions  [ID 46-50]
+
+            // Options for question 46
+            ['text' => 'Structured Query Language', 'correct' => true, 'question_id' => 46],
+            ['text' => 'System Query Library', 'correct' => false, 'question_id' => 46],
+            ['text' => 'Simple Query Language', 'correct' => false, 'question_id' => 46],
+            ['text' => 'Structured Quick Language', 'correct' => false, 'question_id' => 46],
+
+            // Options for question 47
+            ['text' => 'MongoDB', 'correct' => true, 'question_id' => 47],
+            ['text' => 'MySQL', 'correct' => false, 'question_id' => 47],
+            ['text' => 'PostgreSQL', 'correct' => false, 'question_id' => 47],
+            ['text' => 'SQLite', 'correct' => false, 'question_id' => 47],
+
+            // Options for question 48
+            ['text' => 'A unique identifier for a row in a table', 'correct' => true, 'question_id' => 48],
+            ['text' => 'A column that allows null values', 'correct' => false, 'question_id' => 48],
+            ['text' => 'A foreign key that links tables', 'correct' => false, 'question_id' => 48],
+            ['text' => 'A default value for a column', 'correct' => false, 'question_id' => 48],
+
+            // Options for question 49
+            ['text' => 'INSERT', 'correct' => false, 'question_id' => 49],
+            ['text' => 'UPDATE', 'correct' => false, 'question_id' => 49],
+            ['text' => 'SELECT', 'correct' => true, 'question_id' => 49],
+            ['text' => 'DELETE', 'correct' => false, 'question_id' => 49],
+
+            // Options for question 50
+            ['text' => 'Reducing data redundancy and inconsistency', 'correct' => true, 'question_id' => 50],
+            ['text' => 'Improving query execution speed', 'correct' => false, 'question_id' => 50],
+            ['text' => 'Encrypting database data', 'correct' => false, 'question_id' => 50],
+            ['text' => 'Storing data in multiple formats', 'correct' => false, 'question_id' => 50],
+
+            // Systems Analysis and Design Questions  [ID 51-55]
+
+            // Options for question 51
+            ['text' => 'To design the user interface of a system', 'correct' => false, 'question_id' => 51],
+            ['text' => 'To understand and document business requirements for a system', 'correct' => true, 'question_id' => 51],
+            ['text' => 'To create the system’s hardware components', 'correct' => false, 'question_id' => 51],
+            ['text' => 'To test and debug the system', 'correct' => false, 'question_id' => 51],
+
+            // Options for question 52
+            ['text' => 'Flowcharts', 'correct' => true, 'question_id' => 52],
+            ['text' => 'HTML templates', 'correct' => false, 'question_id' => 52],
+            ['text' => 'Databases', 'correct' => false, 'question_id' => 52],
+            ['text' => 'Memory maps', 'correct' => false, 'question_id' => 52],
+
+            // Options for question 53
+            ['text' => 'A diagram showing database relationships', 'correct' => false, 'question_id' => 53],
+            ['text' => 'A diagram depicting interactions between users and a system', 'correct' => true, 'question_id' => 53],
+            ['text' => 'A flowchart representing program logic', 'correct' => false, 'question_id' => 53],
+            ['text' => 'A diagram showing network topologies', 'correct' => false, 'question_id' => 53],
+
+            // Options for question 54
+            ['text' => 'A study to determine the feasibility of designing a user interface', 'correct' => false, 'question_id' => 54],
+            ['text' => 'A study to assess the practicality and costs of a proposed system', 'correct' => true, 'question_id' => 54],
+            ['text' => 'A study focused on coding efficiency', 'correct' => false, 'question_id' => 54],
+            ['text' => 'A study to analyze server performance', 'correct' => false, 'question_id' => 54],
+
+            // Options for question 55
+            ['text' => 'System Implementation', 'correct' => false, 'question_id' => 55],
+            ['text' => 'System Operation', 'correct' => false, 'question_id' => 55],
+            ['text' => 'System Maintenance', 'correct' => false, 'question_id' => 55],
+            ['text' => 'System Termination', 'correct' => true, 'question_id' => 55],
+
             // ============================== PUBLIC QUESTIONS =============================
 
-            // Web Application Development Questions [ID 41-45]
+            // Web Application Development Questions [ID 56-60]
 
-            // Options for question 41 (CSS Output)
-            ['text' => 'The text color of all <h1> elements will change to red.', 'correct' => true, 'question_id' => 41],
-            ['text' => 'The <h1> elements will have no color.', 'correct' => false, 'question_id' => 41],
-            ['text' => 'The text color of all <h1> elements will change to blue.', 'correct' => false, 'question_id' => 41],
-            ['text' => 'The code will result in an error.', 'correct' => false, 'question_id' => 41],
+            // Options for question 56 (CSS Output)
+            ['text' => 'The text color of all <h1> elements will change to red.', 'correct' => true, 'question_id' => 56],
+            ['text' => 'The <h1> elements will have no color.', 'correct' => false, 'question_id' => 56],
+            ['text' => 'The text color of all <h1> elements will change to blue.', 'correct' => false, 'question_id' => 56],
+            ['text' => 'The code will result in an error.', 'correct' => false, 'question_id' => 56],
 
-            // Options for question 42 (JavaScript Output)
-            ['text' => '"string"', 'correct' => true, 'question_id' => 42],
-            ['text' => '"Hello, World!"', 'correct' => false, 'question_id' => 42],
-            ['text' => 'undefined', 'correct' => false, 'question_id' => 42],
-            ['text' => 'object', 'correct' => false, 'question_id' => 42],
+            // Options for question 57 (JavaScript Output)
+            ['text' => '"string"', 'correct' => true, 'question_id' => 57],
+            ['text' => '"Hello, World!"', 'correct' => false, 'question_id' => 57],
+            ['text' => 'undefined', 'correct' => false, 'question_id' => 57],
+            ['text' => 'object', 'correct' => false, 'question_id' => 57],
 
-            // Options for question 43 (PHP Result)
-            ['text' => '10', 'correct' => true, 'question_id' => 43],
-            ['text' => '11', 'correct' => false, 'question_id' => 43],
-            ['text' => 'Error', 'correct' => false, 'question_id' => 43],
-            ['text' => 'Nothing will be displayed.', 'correct' => false, 'question_id' => 43],
+            // Options for question 58 (PHP Result)
+            ['text' => '10', 'correct' => true, 'question_id' => 58],
+            ['text' => '11', 'correct' => false, 'question_id' => 58],
+            ['text' => 'Error', 'correct' => false, 'question_id' => 58],
+            ['text' => 'Nothing will be displayed.', 'correct' => false, 'question_id' => 58],
 
-            // Options for question 44 (jQuery Code Functionality)
-            ['text' => 'It sets a click event listener on the button with ID "myButton" that triggers an alert saying "Button clicked!".', 'correct' => true, 'question_id' => 44],
-            ['text' => 'It changes the text of the button with ID "myButton".', 'correct' => false, 'question_id' => 44],
-            ['text' => 'It submits a form when the button with ID "myButton" is clicked.', 'correct' => false, 'question_id' => 44],
-            ['text' => 'It hides the button with ID "myButton".', 'correct' => false, 'question_id' => 44],
+            // Options for question 59 (jQuery Code Functionality)
+            ['text' => 'It sets a click event listener on the button with ID "myButton" that triggers an alert saying "Button clicked!".', 'correct' => true, 'question_id' => 59],
+            ['text' => 'It changes the text of the button with ID "myButton".', 'correct' => false, 'question_id' => 59],
+            ['text' => 'It submits a form when the button with ID "myButton" is clicked.', 'correct' => false, 'question_id' => 59],
+            ['text' => 'It hides the button with ID "myButton".', 'correct' => false, 'question_id' => 59],
 
-            // Options for question 45 (Express.js Route Return)
-            ['text' => '{ message: "Hello, World!" }', 'correct' => true, 'question_id' => 45],
-            ['text' => 'A string "Hello, World!"', 'correct' => false, 'question_id' => 45],
-            ['text' => 'Error message', 'correct' => false, 'question_id' => 45],
-            ['text' => 'Nothing will be returned.', 'correct' => false, 'question_id' => 45],
-
-
+            // Options for question 60 (Express.js Route Return)
+            ['text' => '{ message: "Hello, World!" }', 'correct' => true, 'question_id' => 60],
+            ['text' => 'A string "Hello, World!"', 'correct' => false, 'question_id' => 60],
+            ['text' => 'Error message', 'correct' => false, 'question_id' => 60],
+            ['text' => 'Nothing will be returned.', 'correct' => false, 'question_id' => 60],
         ];
 
         foreach ($options as $option) {
